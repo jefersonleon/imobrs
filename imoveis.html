@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Imóveis - ImobRS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styleDash.css" />
+  <link rel="stylesheet" href="./css/cadastro.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2><i class="fas fa-building"></i> ImobRS</h2>
+    <ul>
+      <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="imoveis.html"><i class="fas fa-home"></i> Imóveis</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Cliente Comprador</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Cliente Vendedor</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Corretor</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Captador</a></li>
+      <li><a href="#"><i class="fas fa-dollar-sign"></i> Vendas</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios</a></li>
+      <li><a href="login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h2><i class="fas fa-home"></i> Cadastro de Imóveis</h2>
+      <p>Insira os dados para cadastrar um novo imóvel à venda</p>
+    </div>
+
+    <!-- Formulário de Cadastro -->
+    <div class="card shadow-sm p-4">
+      <form id="cadastroImovel">
+        <!-- Dados do Proprietário -->
+        <fieldset class="mb-3">
+          <legend>Dados do Proprietário</legend>
+          <div class="mb-3">
+            <label for="proprietario_nome" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="proprietario_nome" name="proprietario_nome" required>
+          </div>
+          <div class="mb-3">
+            <label for="proprietario_fone" class="form-label">Fone/WhatsApp:</label>
+            <input type="tel" class="form-control" id="proprietario_fone" name="proprietario_fone" required>
+          </div>
+          <div class="mb-3">
+            <label for="proprietario_email" class="form-label">E-mail:</label>
+            <input type="email" class="form-control" id="proprietario_email" name="proprietario_email" required>
+          </div>
+        </fieldset>
+
+        <!-- Endereço do Imóvel -->
+        <fieldset class="mb-3">
+          <legend>Endereço do Imóvel</legend>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="logradouro" class="form-label">Logradouro:</label>
+              <input type="text" class="form-control" id="logradouro" name="logradouro" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="numero" class="form-label">Número:</label>
+              <input type="text" class="form-control" id="numero" name="numero" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="complemento" class="form-label">Complemento:</label>
+              <input type="text" class="form-control" id="complemento" name="complemento">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="cep" class="form-label">CEP:</label>
+              <input type="text" class="form-control" id="cep" name="cep" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="bairro" class="form-label">Bairro:</label>
+              <input type="text" class="form-control" id="bairro" name="bairro" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="cidade" class="form-label">Cidade:</label>
+              <input type="text" class="form-control" id="cidade" name="cidade" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <select class="form-select" id="estado" name="estado" required>
+              <option value="">Selecione</option>
+              <option value="SP">São Paulo</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="MG">Minas Gerais</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- Informações do Imóvel -->
+        <fieldset class="mb-3">
+          <legend>Informações do Imóvel</legend>
+          <div class="mb-3">
+            <label for="finalidade" class="form-label">Finalidade:</label>
+            <!-- Como será apenas venda, removemos outras opções -->
+            <select class="form-select" id="finalidade" name="finalidade" required>
+              <option value="venda">Venda</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="situacao" class="form-label">Situação do Imóvel:</label>
+            <select class="form-select" id="situacao" name="situacao" required>
+              <option value="">Selecione</option>
+              <option value="ativo">Ativo</option>
+              <option value="suspenso">Suspenso</option>
+              <option value="cancelado">Cancelado</option>
+              <option value="provisorio">Provisório</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="iptu" class="form-label">IPTU/ITR Mensal (R$):</label>
+              <input type="number" class="form-control" id="iptu" name="iptu">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="ocupa" class="form-label">Encontra-se:</label>
+              <select class="form-select" id="ocupa" name="ocupa" required>
+                <option value="">Selecione</option>
+                <option value="ocupado">Ocupado</option>
+                <option value="desocupado">Desocupado</option>
+                <option value="locado">Locado</option>
+                <option value="reservado">Reservado</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="momento" class="form-label">Momento:</label>
+              <select class="form-select" id="momento" name="momento" required>
+                <option value="">Selecione</option>
+                <option value="novo">Novo</option>
+                <option value="construcao">Em Construção</option>
+                <option value="usado">Usado</option>
+                <option value="lancamento">Lançamento</option>
+                <option value="reformado">Reformado</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exclusividade" class="form-label">Exclusividade:</label>
+            <select class="form-select" id="exclusividade" name="exclusividade" required>
+              <option value="">Selecione</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="ano_construcao" class="form-label">Ano da Construção:</label>
+            <input type="number" class="form-control" id="ano_construcao" name="ano_construcao">
+          </div>
+          <div class="mb-3">
+            <label for="comentarios_imovel" class="form-label">Comentários sobre a situação do imóvel:</label>
+            <textarea class="form-control" id="comentarios_imovel" name="comentarios_imovel" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Características Específicas -->
+        <fieldset class="mb-3">
+          <legend>Características Específicas</legend>
+          <div class="mb-3">
+            <label for="tipo_imovel" class="form-label">Tipo do Imóvel:</label>
+            <select class="form-select" id="tipo_imovel" name="tipo_imovel" required onchange="exibirCamposEspecificos()">
+              <option value="">Selecione</option>
+              <option value="casa">Casa</option>
+              <option value="apartamento">Apartamento</option>
+              <option value="terreno">Terreno</option>
+              <option value="rural">Rural</option>
+            </select>
+          </div>
+          <div id="camposEspecificos"></div>
+        </fieldset>
+
+        <!-- Mercado e Preço -->
+        <fieldset class="mb-3">
+          <legend>Mercado e Preço</legend>
+          <div class="mb-3">
+            <label for="preco_anuncio" class="form-label">Preço de Anúncio (R$):</label>
+            <input type="number" class="form-control" id="preco_anuncio" name="preco_anuncio" required>
+          </div>
+          <div class="mb-3">
+            <label for="condicao_comercial" class="form-label">Condição Comercial:</label>
+            <textarea class="form-control" id="condicao_comercial" name="condicao_comercial" rows="2"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="faixa_preco" class="form-label">Faixa de preço de imóveis similares (R$):</label>
+            <input type="text" class="form-control" id="faixa_preco" name="faixa_preco" placeholder="de R$... até R$...">
+          </div>
+          <div class="mb-3">
+            <label for="comentarios_mercado" class="form-label">Comentários sobre o imóvel (mercado):</label>
+            <textarea class="form-control" id="comentarios_mercado" name="comentarios_mercado" rows="2"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Documentação e Mídias -->
+        <fieldset class="mb-3">
+          <legend>Documentação e Mídias</legend>
+          <div class="mb-3">
+            <label for="documentacao" class="form-label">Documentação do Imóvel:</label>
+            <input type="file" class="form-control" id="documentacao" name="documentacao[]" multiple>
+          </div>
+          <div class="mb-3">
+            <label for="fotos" class="form-label">Fotos do Imóvel:</label>
+            <input type="file" class="form-control" id="fotos" name="fotos[]" multiple accept="image/*">
+          </div>
+          <div class="mb-3">
+            <label for="video" class="form-label">Vídeos do Imóvel:</label>
+            <input type="file" class="form-control" id="video" name="video[]" multiple accept="video/*">
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary w-100">Cadastrar Imóvel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript para campos dinâmicos -->
+  <script>
+    function exibirCamposEspecificos() {
+      var tipo = document.getElementById('tipo_imovel').value;
+      var container = document.getElementById('camposEspecificos');
+      container.innerHTML = ''; // Limpa os campos anteriores
+
+      if (tipo === 'casa') {
+        container.innerHTML = `
+          <fieldset class="mb-3">
+            <legend>Características para Casa</legend>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="area_construida" class="form-label">Área Construída (m²):</label>
+                <input type="number" class="form-control" id="area_construida" name="area_construida">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="andares" class="form-label">Andares:</label>
+                <input type="number" class="form-control" id="andares" name="andares">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="dormitorios" class="form-label">Dormitórios:</label>
+                <input type="number" class="form-control" id="dormitorios" name="dormitorios">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="suites" class="form-label">Suítes:</label>
+                <input type="number" class="form-control" id="suites" name="suites">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="banheiros" class="form-label">Banheiros:</label>
+                <input type="number" class="form-control" id="banheiros" name="banheiros">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="vagas_cobertas" class="form-label">Vagas Cobertas:</label>
+                <input type="number" class="form-control" id="vagas_cobertas" name="vagas_cobertas">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="vagas_descobertas" class="form-label">Vagas Descobertas:</label>
+                <input type="number" class="form-control" id="vagas_descobertas" name="vagas_descobertas">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="posicao_solar" class="form-label">Posição Solar/Face:</label>
+                <select class="form-select" id="posicao_solar" name="posicao_solar">
+                  <option value="">Selecione</option>
+                  <option value="norte">Norte</option>
+                  <option value="sul">Sul</option>
+                  <option value="leste">Leste</option>
+                  <option value="oeste">Oeste</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+        `;
+      } else if (tipo === 'apartamento') {
+        container.innerHTML = `
+          <fieldset class="mb-3">
+            <legend>Características para Apartamento</legend>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="area_privativa" class="form-label">Área Privativa (m²):</label>
+                <input type="number" class="form-control" id="area_privativa" name="area_privativa">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="andar" class="form-label">Andar:</label>
+                <input type="number" class="form-control" id="andar" name="andar">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="dormitorios_ap" class="form-label">Dormitórios:</label>
+                <input type="number" class="form-control" id="dormitorios_ap" name="dormitorios_ap">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="suites_ap" class="form-label">Suítes:</label>
+                <input type="number" class="form-control" id="suites_ap" name="suites_ap">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="banheiros_ap" class="form-label">Banheiros:</label>
+                <input type="number" class="form-control" id="banheiros_ap" name="banheiros_ap">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="vagas_cobertas_ap" class="form-label">Vagas Cobertas:</label>
+                <input type="number" class="form-control" id="vagas_cobertas_ap" name="vagas_cobertas_ap">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="vagas_descobertas_ap" class="form-label">Vagas Descobertas:</label>
+                <input type="number" class="form-control" id="vagas_descobertas_ap" name="vagas_descobertas_ap">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="condominio_mensal" class="form-label">Condomínio Mensal (R$):</label>
+                <input type="number" class="form-control" id="condominio_mensal" name="condominio_mensal">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="iptu_anual_ap" class="form-label">IPTU Anual (R$):</label>
+                <input type="number" class="form-control" id="iptu_anual_ap" name="iptu_anual_ap">
+              </div>
+            </div>
+          </fieldset>
+        `;
+      } else if (tipo === 'terreno') {
+        container.innerHTML = `
+          <fieldset class="mb-3">
+            <legend>Características para Terreno</legend>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="medidas" class="form-label">Medidas (m x m):</label>
+                <input type="text" class="form-control" id="medidas" name="medidas" placeholder="Ex: 20x30">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="topografia" class="form-label">Topografia:</label>
+                <select class="form-select" id="topografia" name="topografia">
+                  <option value="">Selecione</option>
+                  <option value="plano">Plano</option>
+                  <option value="aclive">Aclive</option>
+                  <option value="declive">Declive</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="area_total" class="form-label">Área Total (m²):</label>
+                <input type="number" class="form-control" id="area_total" name="area_total">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="posicao_solar_terreno" class="form-label">Posição Solar/Face:</label>
+              <select class="form-select" id="posicao_solar_terreno" name="posicao_solar_terreno">
+                <option value="">Selecione</option>
+                <option value="norte">Norte</option>
+                <option value="sul">Sul</option>
+                <option value="leste">Leste</option>
+                <option value="oeste">Oeste</option>
+              </select>
+            </div>
+          </fieldset>
+        `;
+      } else if (tipo === 'rural') {
+        container.innerHTML = `
+          <fieldset class="mb-3">
+            <legend>Características para Imóvel Rural</legend>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="medidas_rural" class="form-label">Medidas (m x m):</label>
+                <input type="text" class="form-control" id="medidas_rural" name="medidas_rural" placeholder="Ex: 50x100">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="topografia_rural" class="form-label">Topografia:</label>
+                <select class="form-select" id="topografia_rural" name="topografia_rural">
+                  <option value="">Selecione</option>
+                  <option value="plano">Plano</option>
+                  <option value="aclive">Aclive</option>
+                  <option value="declive">Declive</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="area_total_rural" class="form-label">Área Total (m² ou ha):</label>
+                <input type="number" class="form-control" id="area_total_rural" name="area_total_rural">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="mata_reflorestada" class="form-label">% Mata Reflorestada:</label>
+                <input type="number" class="form-control" id="mata_reflorestada" name="mata_reflorestada">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="mata_nativa" class="form-label">% Mata Nativa:</label>
+                <input type="number" class="form-control" id="mata_nativa" name="mata_nativa">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="campo" class="form-label">% Campo:</label>
+                <input type="number" class="form-control" id="campo" name="campo">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="lavoura" class="form-label">% Lavoura:</label>
+                <input type="number" class="form-control" id="lavoura" name="lavoura">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="benfeitorias" class="form-label">Benfeitorias:</label>
+              <textarea class="form-control" id="benfeitorias" name="benfeitorias" rows="2"></textarea>
+            </div>
+          </fieldset>
+        `;
+      }
+    }
+
+    // Exemplo de tratamento do formulário
+    document.getElementById('cadastroImovel').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Aqui você pode coletar os dados e enviar via AJAX ou outro método.
+      alert('Imóvel cadastrado com sucesso!');
+    });
+  </script>
+</body>
+</html>

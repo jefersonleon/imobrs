@@ -1,0 +1,33 @@
+/* Você pode complementar ou sobrescrever estilos do styledash.css para esta página específica */
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  header, .header {
+    margin-bottom: 20px;
+  }
+  
+  /* Ajuste de fieldsets para melhor espaçamento */
+  fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  legend {
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  
+  /* Responsividade se necessário */
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 80px;
+    }
+  }
+  
